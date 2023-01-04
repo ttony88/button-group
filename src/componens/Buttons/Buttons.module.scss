@@ -1,0 +1,31 @@
+@import '../../color';
+
+@mixin button ($color){
+    background-color: $color;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 20%;
+}
+
+.button {
+    @include button($inactiveButtonColor);
+    box-shadow: inset 0 0 0 200vw rgba(0,0,0,.5); 
+}
+.activeButton {
+    @include button($primaryButtonColor);
+    box-shadow: 5px 5px 5px rgba(0,0,0,.7);
+    &:hover {
+        background-color: $hoverButtonColor;
+    }
+    &:active {
+        background-color: $activeButtonColor;
+        box-shadow: inset 5px 5px rgba(0,0,0,.5);
+    }
+}
+.buttonGroup {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-gap: 20px;
+    height: 100%;
+}
